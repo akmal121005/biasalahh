@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A beautiful Netflix-style private digital album dedicated to our special moments, photos, videos, and shared memories.">
+    <title>About Us - Our Story & Memories</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" src="assets/audio/uhuy.mp3" loop></audio>
+
+    <!-- 1. Profile Selection Screen -->
+    <div id="profile-screen" class="screen active">
+        <div class="profile-container">
+            <h2 class="profile-title">Who's Watching?</h2>
+            <div class="profile-list">
+                <!-- Profile 1 Card -->
+                <div class="profile-card" id="profile-card-1" data-profile="profile1">
+                    <div class="profile-avatar-wrapper">
+                        <img src="assets/images/profil/about_me.jpeg" alt="Profile 1" class="profile-avatar-img"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback Avatar SVG -->
+                        <div class="profile-avatar-fallback fallback-blue">
+                            <svg viewBox="0 0 24 24" width="60" height="60" fill="currentColor">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="profile-name">Profile 1</span>
+                </div>
+                <!-- Profile 2 Card -->
+                <div class="profile-card" id="profile-card-2" data-profile="profile2">
+                    <div class="profile-avatar-wrapper">
+                        <img src="assets/images/profil/about_you.png" alt="Profile 2" class="profile-avatar-img"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback Avatar SVG -->
+                        <div class="profile-avatar-fallback fallback-green">
+                            <svg viewBox="0 0 24 24" width="60" height="60" fill="currentColor">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="profile-name">Profile 2</span>
+                </div>
+            </div>
+            <button id="manage-profiles-btn" class="manage-profile-btn">Manage Profiles</button>
+        </div>
+    </div>
+
+    <!-- 2. Netflix Style Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <video id="loading-video" src="assets/videos/tes.mp4" class="loading-video-fullscreen" loop playsinline></video>
+    </div>
+
+    <!-- 3. Home Page -->
+    <div id="home-screen" class="screen">
+
+        <!-- Netflix Style Navbar -->
+        <nav id="main-navbar" class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-left">
+                    <a href="#" class="navbar-logo" id="nav-logo"><img src="assets/images/logo/logo1.png" alt="Logo"
+                            class="navbar-logo-image"></a>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="#" class="nav-link active" id="nav-link-home">Home</a></li>
+                        <li class="nav-item"><a href="#photos-section" class="nav-link" id="nav-link-photos">Photos</a>
+                        </li>
+                        <li class="nav-item"><a href="#videos-section" class="nav-link" id="nav-link-videos">Videos</a>
+                        </li>
+                        <li class="nav-item"><a href="#memories-section" class="nav-link"
+                                id="nav-link-memories">Quote</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-right">
+                    <!-- Music Sound Wave Button -->
+                    <button id="music-toggle-btn" class="music-btn" aria-label="Toggle Music">
+                        <svg class="icon-music-play" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                        </svg>
+                        <span class="music-waves" id="music-waves">
+                            <span class="wave bar-1"></span>
+                            <span class="wave bar-2"></span>
+                            <span class="wave bar-3"></span>
+                            <span class="wave bar-4"></span>
+                        </span>
+                        <span id="music-btn-text">Play Music</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <!-- Hero Banner -->
+            <section id="hero-banner" class="hero">
+                <div class="hero-bg-wrapper">
+                    <!-- GANTI DENGAN INI -->
+                    <video class="hero-bg-img" autoplay muted loop playsinline>
+                        <source src="assets/images/hero/page1.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback Gradient jika video tidak bisa diputar -->
+                    <div class="hero-bg-fallback"></div>
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge">OUR MEMORIES</span>
+                    <h1 class="hero-title">Our Story, Our Memories</h1>
+                    <p class="hero-description">A little place filled with the moments, smiles, and memories we created
+                        together.</p>
+                    <div class="hero-buttons">
+                        <button id="btn-play-music-hero" class="btn btn-play">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            <span>Play Music</span>
+                        </button>
+                        <button id="btn-view-memories" class="btn btn-info" data-video="assets/videos/loadmore.mp4"
+                            data-description="Watch this special memory video showcasing our journey together."><svg
+                                viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                            </svg><span>Read more</span></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photos Section (12 photos) -->
+            <section id="photos-section" class="grid-section">
+                <h2 class="section-heading">Our Photos</h2>
+                <div class="grid-container photo-grid">
+                    <!-- Cards will be generated or styled to have media -->
+                    <!-- Photo 1 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our1.jpeg" alt="Memory 1" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 1</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #1</h3>
+                            <p class="card-subtitle">Beautiful Day</p>
+                        </div>
+                    </div>
+                    <!-- Photo 2 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our2.jpeg" alt="Memory 2" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 2</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #2</h3>
+                            <p class="card-subtitle">Sweet Moments</p>
+                        </div>
+                    </div>
+                    <!-- Photo 3 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our3.jpeg" alt="Memory 3" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 3</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #3</h3>
+                            <p class="card-subtitle">Warm Smiles</p>
+                        </div>
+                    </div>
+                    <!-- Photo 4 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our4.jpeg" alt="Memory 4" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 4</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #4</h3>
+                            <p class="card-subtitle">Special Place</p>
+                        </div>
+                    </div>
+                    <!-- Photo 5 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our5.jpeg" alt="Memory 5" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 5</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #5</h3>
+                            <p class="card-subtitle">Adventure</p>
+                        </div>
+                    </div>
+                    <!-- Photo 6 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our6.jpeg" alt="Memory 6" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 6</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #6</h3>
+                            <p class="card-subtitle">Cozy Evening</p>
+                        </div>
+                    </div>
+                    <!-- Photo 7 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our7.jpeg" alt="Memory 7" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 7</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #7</h3>
+                            <p class="card-subtitle">Joy & Laughs</p>
+                        </div>
+                    </div>
+                    <!-- Photo 8 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our8.jpeg" alt="Memory 8" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 8</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #8</h3>
+                            <p class="card-subtitle">Sunset Date</p>
+                        </div>
+                    </div>
+                    <!-- Photo 9 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our9.jpeg" alt="Memory 9" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 9</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #9</h3>
+                            <p class="card-subtitle">Togetherness</p>
+                        </div>
+                    </div>
+                    <!-- Photo 10 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our10.jpeg" alt="Memory 10" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 10</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #10</h3>
+                            <p class="card-subtitle">Happiness</p>
+                        </div>
+                    </div>
+                    <!-- Photo 11 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our11.jpeg" alt="Memory 11" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 11</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #11</h3>
+                            <p class="card-subtitle">Shared Dreams</p>
+                        </div>
+                    </div>
+                    <!-- Photo 12 -->
+                    <div class="card photo-card">
+                        <div class="card-media-wrapper">
+                            <img src="assets/images/our_photo/our12.jpeg" alt="Memory 12" class="card-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="card-fallback-placeholder">
+                                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span>Memory 12</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Memory #12</h3>
+                            <p class="card-subtitle">Forever</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Videos Section (6 videos) -->
+            <section id="videos-section" class="grid-section">
+                <h2 class="section-heading">Our Videos</h2>
+                <div class="grid-container video-grid">
+                    <!-- Video 1 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video1.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <!-- Placeholder with Play Icon -->
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 1</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #1</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video2.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 2</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #2</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video3.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 3</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #3</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 4 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video4.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 4</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #4</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 5 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video5.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 5</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #5</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 6 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video6.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 6</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #6</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 7 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video7.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 7</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #7</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                    <!-- Video 8 -->
+                    <div class="card video-card">
+                        <div class="card-media-wrapper">
+                            <video src="assets/images/our_video/video8.mp4" class="card-video" loop muted playsinline
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+                            <div class="card-fallback-placeholder video-placeholder">
+                                <svg class="placeholder-icon play-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span>Video Moment 8</span>
+                            </div>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Moment #8</h3>
+                            <p class="card-subtitle">Play Video</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Memories / Quote section -->
+            <section id="memories-section" class="quotes-section">
+                <div class="quote-container">
+                    <p class="quote-text">"Every love story is beautiful, but ours is my favorite. "</p>
+                    <span class="quote-author">- AmayMullet -</span>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p class="footer-text">Made with ❤️ for our private collection.</p>
+            <p class="footer-subtext">&copy; 2026 ABOUT US. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- Modal Popup for Read More -->
+    <div id="media-modal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <!-- Tombol Close Bulat -->
+            <button class="modal-close-btn" id="modal-close">✕</button>
+
+            <!-- Bagian Atas: Video Player -->
+            <div class="modal-video-wrapper">
+                <video id="modal-video" class="modal-video" controls></video>
+            </div>
+
+            <!-- Bagian Bawah: Info -->
+            <div class="modal-info">
+                <div class="modal-info-left">
+                    <div class="modal-meta">
+                        <span class="modal-match">98% Match</span>
+                        <span class="modal-year">2026</span>
+                        <span class="modal-quality">HD</span>
+                    </div>
+                    <p id="modal-description" class="modal-description"></p>
+                </div>
+                <div class="modal-info-right">
+                    <p class="modal-genre"><span>Genre:</span> Romance, Memory</p>
+                    <p class="modal-tags"><span>Tags:</span> Sweet, Together, Love</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
